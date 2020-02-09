@@ -1,0 +1,46 @@
+{
+  "name": "@ctkit/layout",
+  "version": "0.1.8",
+  "description": "Grid.",
+  "license": "Apache-2.0",
+  "main": "dist/esm/index.js",
+  "module": "dist/cjs/index.js",
+  "sideEffects": false,
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "TG",
+  "maintainers": [
+    "TG"
+  ],
+  "repository": "https://github.com",
+  "scripts": {
+    "dev": "BABEL_ENV=production babel src/ -w -d dist/ --root-mode upward",
+    "build:lib": "BABEL_ENV=production babel src/ -d dist/ --root-mode upward"
+  },
+  "dependencies": {
+    "@ctkit/text": "^0.1.8",
+    "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
+    "@ctkit/constants": "^0.1.6",
+    "@ctkit/theme": "^0.2.0",
+    "lodash.isarray": "^4.0.0"
+
+  },
+  "peerDependencies": {
+    "react": "^16.8.4"
+  },
+  "devDependencies": {
+    "react-dom": "^16.8.4"
+  },
+  "keywords": [
+    "CristoTech-react",
+    "ryo",
+    "react",
+    "ui"
+  ]
+}

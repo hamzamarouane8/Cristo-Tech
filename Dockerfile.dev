@@ -1,0 +1,30 @@
+FROM node:12 AS builder
+
+# Environment
+
+WORKDIR /home/app
+ENV NODE_ENV=production
+
+# Dependencies
+
+COPY package.json /home/app/
+COPY package-lock.json /home/app/
+COPY lerna.json /home/app/
+
+COPY packages/* /home/app/packages/
+
+RUN npm ci --ignore-scripts --production --no-optional
+RUN npx lerna bootstrap --hoist --ignore-scripts -- --production --no-optional
+
+# Build
+
+COPY . /home/app/
+RUN yarn install && yarn build && lerna bootstrap
+
+# Serve
+FROM node:12
+WORKDIR /app
+COPY --from=builder . /usr/src/lerna-repo
+RUN cd lerna-repo/app 
+
+CMD ["yarn", "start"]

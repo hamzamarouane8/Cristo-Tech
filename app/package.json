@@ -1,0 +1,71 @@
+{
+  "name": "@christotech/web-clients",
+  "version": "0.1.0",
+  "private": true,
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "dependencies": {
+    "@ctkit/alerts": "^0.1.8",
+    "@ctkit/app": "^0.1.8",
+    "@ctkit/button": "^0.1.8",
+    "@ctkit/theme": "^0.2.0",
+
+    "@ctkit/chart": "^0.1.8",
+    "@ctkit/commons": "^0.1.8",
+    "@ctkit/constants": "^0.1.6",
+    "@ctkit/crud": "^0.1.8",
+    "@ctkit/datasource": "^0.1.8",
+    "@ctkit/dialog": "^0.1.8",
+    "@ctkit/empty-state": "^0.1.8",
+    "@ctkit/eventbus": "^0.1.8",
+    "@ctkit/form": "^0.1.8",
+    "@ctkit/http-client": "^0.1.8",
+    "@ctkit/icons": "^0.1.8",
+    "@ctkit/layout": "^0.1.8",
+    "@ctkit/link": "^0.1.8",
+    "@ctkit/loader": "^0.1.8",
+    "@ctkit/modal": "^0.0.1",
+    "@ctkit/models": "^0.1.6",
+    "@ctkit/page": "^0.1.8",
+    "@ctkit/pane": "^0.1.8",
+    "@ctkit/popover": "^0.1.8",
+    "@ctkit/search": "^0.0.1",
+    "@ctkit/table": "^0.1.8",
+    "@ctkit/text": "^0.1.8",
+    "@ctkit/toolbar": "^0.1.8",
+    "@ctkit/w-carousel": "^0.1.0",
+    "@ctkit/w-features": "^0.1.0",
+    "@ctkit/w-footer": "^0.1.0",
+    "@ctkit/w-modal-validation": "^0.1.0",
+    "@ctkit/w-maps": "^0.1.0",
+    "faker": "^4.1.0",
+    "lodash.debounce": "^4.0.8",
+    "lodash.escaperegexp": "^4.1.2",
+    "lodash.filter": "^4.6.0",
+    "lodash.isstring": "^4.0.1",
+    "react-notifications-component": "^1.0.1",
+    "react-scripts": "3.0.1",
+    "nightwatch": "^1.0.19"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "nightwatch"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "axios-mock-adapter": "^1.16.0",
+    "nodemon": "^1.18.8"
+  }
+}

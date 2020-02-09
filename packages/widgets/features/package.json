@@ -1,0 +1,39 @@
+{
+  "name": "@ctkit/w-features",
+  "version": "0.1.0",
+  "description": "Features Widget.",
+  "license": "Apache-2.0",
+  "main": "dist/esm/index.js",
+  "module": "dist/cjs/index.js",
+  "sideEffects": false,
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "CristoTech",
+  "maintainers": [
+    "CristoTech"
+  ],
+  "repository": "https://github.com",
+  "dependencies": {
+    "@ctkit/layout": "^0.1.8",
+    "@ctkit/theme": "^0.2.0",
+    "@ctkit/button": "^0.1.8"
+
+  },
+  "peerDependencies": {
+    "react": "^16.8.4"
+  },
+  "devDependencies": {
+    "react-dom": "^16.8.4"
+  },
+  "keywords": [
+    "CristoTech-react",
+    "ryo",
+    "react",
+    "ui"
+  ]
+}

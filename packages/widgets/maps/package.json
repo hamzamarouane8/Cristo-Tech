@@ -1,0 +1,37 @@
+{
+  "name": "@ctkit/w-maps",
+  "version": "0.1.0",
+  "description": "Maps widget.",
+  "license": "Apache-2.0",
+  "main": "dist/esm/index.js",
+  "module": "dist/cjs/index.js",
+  "sideEffects": false,
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "CristoTech",
+  "maintainers": [
+    "CristoTech"
+  ],
+  "repository": "https://github.com",
+  "dependencies": {
+    "@ctkit/theme": "^0.2.0",
+    "react-google-maps": "^9.4.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8.4"
+  },
+  "devDependencies": {
+    "react-dom": "^16.8.4"
+  },
+  "keywords": [
+    "CristoTech-react",
+    "ryo",
+    "react",
+    "ui"
+  ]
+}

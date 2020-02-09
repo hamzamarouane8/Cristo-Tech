@@ -1,0 +1,15 @@
+pipelines:
+  default:
+    - step:
+        name: Build resources
+        image: node:stretch-slim
+        caches:
+          - node
+        script:
+          - yarn install
+          - yarn build
+          - yarn global add lerna
+          - lerna bootstrap
+          - cd app
+          - CI=false yarn build
+
