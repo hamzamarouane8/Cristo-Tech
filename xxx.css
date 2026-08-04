@@ -1,0 +1,100 @@
+.demande-fonds-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1000px;
+}
+
+.section-card {
+  padding: 16px 20px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.coupures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 12px;
+}
+
+.coupure-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coupure-valeur {
+  background: #dbe7f0;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.coupure-cell input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 8px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.section-total {
+  margin-top: 16px;
+  text-align: right;
+  background: #f2c063;
+  border-radius: 4px;
+  padding: 6px 12px;
+  display: inline-block;
+  float: right;
+}
+
+.ramassage-fields {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hint {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: #b26a00;
+}
+
+.devise-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.motif-field {
+  flex: 1 1 260px;
+}
+
+.actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.total-general {
+  font-size: 1.05rem;
+}
