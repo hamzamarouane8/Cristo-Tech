@@ -1,0 +1,102 @@
+<form [formGroup]="form" class="demande-fonds-body" (ngSubmit)="submit()">
+
+  <!-- Section GAB -->
+  <mat-card class="section-card" formGroupName="gab">
+    <div class="section-header">
+      <h3>GAB</h3>
+      <mat-checkbox formControlName="urgent">Urgent</mat-checkbox>
+    </div>
+
+    <div class="coupures-grid" formArrayName="coupures">
+      <div class="coupure-cell" *ngFor="let row of gabCoupures.controls; let i = index" [formGroupName]="i">
+        <div class="coupure-valeur">{{ row.get('libelle')?.value }}</div>
+        <input matInput type="number" min="0" formControlName="quantite" />
+      </div>
+    </div>
+
+    <div class="section-total">Total <strong>{{ totalGab() | number: '1.2-2' }}</strong> MAD</div>
+  </mat-card>
+
+  <!-- Section Caisse MAD -->
+  <mat-card class="section-card" formGroupName="caisse">
+    <div class="section-header">
+      <h3>Caisse MAD</h3>
+      <mat-checkbox formControlName="urgent">Urgent</mat-checkbox>
+    </div>
+
+    <div class="coupures-grid" formArrayName="coupures">
+      <div class="coupure-cell" *ngFor="let row of caisseCoupures.controls; let i = index" [formGroupName]="i">
+        <div class="coupure-valeur">{{ row.get('libelle')?.value }}</div>
+        <input matInput type="number" min="0" formControlName="quantite" />
+      </div>
+    </div>
+
+    <div class="section-total">Total <strong>{{ totalCaisse() | number: '1.2-2' }}</strong> MAD</div>
+  </mat-card>
+
+  <!-- Section Demande de Ramassage (collection) -->
+  <mat-card class="section-card" formGroupName="ramassage">
+    <div class="section-header">
+      <h3>Demande de Ramassage</h3>
+    </div>
+
+    <div class="ramassage-fields">
+      <mat-form-field appearance="outline">
+        <mat-label>Montant</mat-label>
+        <input matInput type="number" min="0" formControlName="montant" />
+      </mat-form-field>
+
+      <mat-checkbox formControlName="actif">Ramassage</mat-checkbox>
+      <mat-checkbox formControlName="urgent">Urgent</mat-checkbox>
+    </div>
+    <p class="hint" *ngIf="ramassageGroup.get('montant')?.value && !ramassageGroup.get('actif')?.value">
+      Cochez "Ramassage" pour inclure cette collecte dans la demande.
+    </p>
+  </mat-card>
+
+  <!-- Section Devise -->
+  <mat-card class="section-card">
+    <div class="section-header">
+      <h3>Devise</h3>
+    </div>
+
+    <div formArrayName="devises">
+      <div class="devise-row" *ngFor="let ligne of devises.controls; let i = index" [formGroupName]="i">
+        <mat-form-field appearance="outline">
+          <mat-label>Montant</mat-label>
+          <input matInput type="number" min="0" formControlName="montant" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Devise</mat-label>
+          <mat-select formControlName="deviseCode">
+            <mat-option *ngFor="let d of devisesDisponibles" [value]="d.code">{{ d.libelle }} ({{ d.code }})</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="urgent">Urgent</mat-checkbox>
+
+        <mat-form-field appearance="outline" *ngIf="ligne.get('urgent')?.value" class="motif-field">
+          <mat-label>Motif de l'urgence</mat-label>
+          <textarea matInput formControlName="motifUrgence" rows="2"></textarea>
+        </mat-form-field>
+
+        <button mat-icon-button type="button" color="warn" [disabled]="devises.length <= 1" (click)="supprimerDevise(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <button mat-stroked-button type="button" (click)="ajouterDevise()">
+      <mat-icon>add</mat-icon> Ajouter
+    </button>
+  </mat-card>
+
+  <div class="actions-bar">
+    <div class="total-general">Total GAB + Caisse + Ramassage : <strong>{{ montantTotalMad() | number: '1.2-2' }} MAD</strong></div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="submitting">
+      {{ submitting ? 'Envoi en cours...' : 'Enregistrer' }}
+    </button>
+  </div>
+</form>
