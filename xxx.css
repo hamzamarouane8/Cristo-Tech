@@ -1,0 +1,357 @@
+:host {
+  --agence-vert: #1e6b57;
+  --agence-vert-clair: #e6f0ec;
+  --agence-fond: #eef1f4;
+  --agence-carte: #ffffff;
+  --agence-bordure: #d9dee3;
+  --agence-texte: #23303a;
+  --agence-texte-doux: #6b7885;
+  --agence-alerte: #c62828;
+
+  display: block;
+  background: var(--agence-fond);
+  min-height: 100%;
+  color: var(--agence-texte);
+}
+
+.app-bar {
+  background: var(--agence-carte);
+  border-bottom: 1px solid var(--agence-bordure);
+  padding: 14px 24px;
+
+  &__brand {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--agence-vert);
+  }
+}
+
+main { padding: 20px 24px 32px; }
+
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--agence-vert);
+}
+
+.urgent-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border: 1px solid #f0c8c8;
+  border-radius: 6px;
+  background: #fdf2f2;
+  color: var(--agence-alerte);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.board__col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.section-card {
+  background: var(--agence-carte);
+  border: 1px solid var(--agence-bordure);
+  border-radius: 8px;
+  padding: 18px 20px 20px;
+  box-shadow: none;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--agence-bordure);
+
+  h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--agence-vert);
+  }
+
+  mat-icon {
+    color: var(--agence-vert);
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Caisse : billets / pièces */
+.coupures-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.coupures-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--agence-texte-doux);
+    margin-bottom: 4px;
+  }
+}
+
+.coupure-row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+
+  &__valeur {
+    font-family: 'Roboto Mono', ui-monospace, monospace;
+    font-size: 13px;
+    text-align: right;
+    color: var(--agence-texte-doux);
+  }
+
+  &__input {
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--agence-bordure);
+    border-radius: 4px;
+    background: var(--agence-carte);
+    font-family: 'Roboto Mono', ui-monospace, monospace;
+    font-size: 13px;
+    text-align: right;
+    color: var(--agence-texte);
+
+    &:focus {
+      outline: none;
+      border-color: var(--agence-vert);
+      box-shadow: 0 0 0 2px var(--agence-vert-clair);
+    }
+  }
+}
+
+.totaux-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.total-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px;
+  border-left: 3px solid var(--agence-vert);
+  background: var(--agence-vert-clair);
+  border-radius: 4px;
+
+  &__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--agence-texte-doux);
+  }
+
+  &__value {
+    font-family: 'Roboto Mono', ui-monospace, monospace;
+    font-size: 15px;
+    color: var(--agence-vert);
+  }
+}
+
+/* GAB : cassettes */
+.cassettes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cassette-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  align-items: center;
+  gap: 12px;
+
+  &__libelle { font-size: 13px; color: var(--agence-texte); }
+
+  &__input {
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--agence-bordure);
+    border-radius: 4px;
+    font-family: 'Roboto Mono', ui-monospace, monospace;
+    font-size: 13px;
+    text-align: right;
+
+    &:focus {
+      outline: none;
+      border-color: var(--agence-vert);
+      box-shadow: 0 0 0 2px var(--agence-vert-clair);
+    }
+  }
+}
+
+.section-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--agence-bordure);
+  font-size: 13px;
+
+  strong {
+    font-family: 'Roboto Mono', ui-monospace, monospace;
+    font-size: 15px;
+    color: var(--agence-vert);
+  }
+}
+
+/* Ramassage */
+.saisie-ramassage {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.lignes-list {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__empty {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--agence-texte-doux);
+  }
+}
+
+.ligne-item {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--agence-bordure);
+  border-radius: 4px;
+
+  &__devise { font-weight: 600; font-size: 13px; }
+
+  &__montant {
+    font-family: 'Roboto Mono', ui-monospace, monospace;
+    font-size: 13px;
+    text-align: right;
+  }
+}
+
+/* Commande devises */
+.saisie-devise {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+
+  &__action { height: 48px; }
+}
+
+.lignes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+
+  th, td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--agence-bordure);
+    font-size: 13px;
+    text-align: left;
+  }
+
+  th {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--agence-texte-doux);
+    background: #f7f9fa;
+  }
+
+  .is-numeric {
+    text-align: right;
+    font-family: 'Roboto Mono', ui-monospace, monospace;
+  }
+
+  .is-action { width: 72px; text-align: center; }
+
+  &__empty td { color: var(--agence-texte-doux); font-style: italic; }
+}
+
+/* Barre d'actions */
+.full-width { width: 100%; }
+
+.actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 14px 20px;
+  background: var(--agence-carte);
+  border: 1px solid var(--agence-bordure);
+  border-radius: 8px;
+}
+
+.total-general {
+  font-size: 13px;
+  color: var(--agence-texte-doux);
+
+  strong {
+    font-family: 'Roboto Mono', ui-monospace, monospace;
+    font-size: 15px;
+    color: var(--agence-vert);
+  }
+}
+
+.actions-bar__buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .board { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 700px) {
+  main { padding: 16px 12px 24px; }
+  .coupures-columns, .saisie-devise { grid-template-columns: minmax(0, 1fr); }
+  .saisie-devise__action { height: 40px; }
+}
