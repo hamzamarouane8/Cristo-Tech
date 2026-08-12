@@ -1,42 +1,13 @@
-import { AbstractControl, FormArray, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
-
-/**
- * Valide qu'au moins une ligne de coupure a une quantité > 0.
- * Optionnel : à appliquer seulement si une section GAB/Caisse doit être obligatoirement remplie.
- * Par défaut ces sections sont facultatives (voir auMoinsUneSectionRenseigneeValidator).
- */
-export function atLeastOneCoupureValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const array = control as FormArray;
-    const hasQuantite = array.controls.some((c) => (c.get('quantite')?.value ?? 0) > 0);
-    return hasQuantite ? null : { aucuneCoupure: true };
-  };
-}
-
-/**
- * Valide, au niveau du formulaire global, qu'au moins une des 4 sections (GAB, Caisse,
- * Ramassage, Devises) contient réellement une demande, pour éviter un envoi totalement vide.
- */
-export function auMoinsUneSectionRenseigneeValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const form = control as FormGroup;
-
-    const gabCoupures = form.get('gab.coupures') as FormArray | null;
-    const gabRenseigne = !!gabCoupures?.controls.some((c) => (c.get('quantite')?.value ?? 0) > 0);
-
-    const caisseCoupures = form.get('caisse.coupures') as FormArray | null;
-    const caisseRenseigne = !!caisseCoupures?.controls.some((c) => (c.get('quantite')?.value ?? 0) > 0);
-
-    const ramassageActif = !!form.get('ramassage.actif')?.value;
-    const ramassageMontant = form.get('ramassage.montant')?.value ?? 0;
-    const ramassageRenseigne = ramassageActif && ramassageMontant > 0;
-
-    const devises = form.get('devises') as FormArray | null;
-    const devisesRenseignees = !!devises?.controls.some(
-      (c) => (c.get('montant')?.value ?? 0) > 0 && !!c.get('deviseCode')?.value
-    );
-
-    const auMoinsUne = gabRenseigne || caisseRenseigne || ramassageRenseigne || devisesRenseignees;
-    return auMoinsUne ? null : { formulaireVide: true };
-  };
-}
+INSERT INTO denomination (item_type, face_value, denomination_label) VALUES
+  ('BANKNOTE', 200.00, 'Billet de 200 MAD'),
+  ('BANKNOTE', 100.00, 'Billet de 100 MAD'),
+  ('BANKNOTE',  50.00, 'Billet de 50 MAD'),
+  ('BANKNOTE',  20.00, 'Billet de 20 MAD'),
+  ('COIN',      10.00, 'Pièce de 10 MAD'),
+  ('COIN',       5.00, 'Pièce de 5 MAD'),
+  ('COIN',       2.00, 'Pièce de 2 MAD'),
+  ('COIN',       1.00, 'Pièce de 1 MAD'),
+  ('COIN',       0.50, 'Pièce de 0,50 MAD'),
+  ('COIN',       0.20, 'Pièce de 0,20 MAD'),
+  ('COIN',       0.10, 'Pièce de 0,10 MAD'),
+  ('COIN',       0.05, 'Pièce de 0,05 MAD');
