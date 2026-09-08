@@ -1,13 +1,3 @@
-INSERT INTO denomination (item_type, face_value, denomination_label) VALUES
-  ('BANKNOTE', 200.00, 'Billet de 200 MAD'),
-  ('BANKNOTE', 100.00, 'Billet de 100 MAD'),
-  ('BANKNOTE',  50.00, 'Billet de 50 MAD'),
-  ('BANKNOTE',  20.00, 'Billet de 20 MAD'),
-  ('COIN',      10.00, 'Pièce de 10 MAD'),
-  ('COIN',       5.00, 'Pièce de 5 MAD'),
-  ('COIN',       2.00, 'Pièce de 2 MAD'),
-  ('COIN',       1.00, 'Pièce de 1 MAD'),
-  ('COIN',       0.50, 'Pièce de 0,50 MAD'),
-  ('COIN',       0.20, 'Pièce de 0,20 MAD'),
-  ('COIN',       0.10, 'Pièce de 0,10 MAD'),
-  ('COIN',       0.05, 'Pièce de 0,05 MAD');
+npm i @angular/animations@17.3.12 @angular/common@17.3.12 @angular/compiler@17.3.12 @angular/core@17.3.12 @angular/forms@17.3.12 @angular/platform-browser@17.3.12 @angular/platform-browser-dynamic@17.3.12 @angular/router@17.3.12 @angular/cdk@17.3.10 zone.js@0.14.10 --legacy-peer-deps
+
+npm i -D @angular/cli@17.3.17 @angular/compiler-cli@17.3.12 @angular-devkit/build-angular@17.3.17 typescript@5.4.5 ngx-build-plus@17.0.0 @angular-architects/module-federation@17.0.8 --legacy-peer-deps
