@@ -1,11 +1,19 @@
-"styles": [
-  "src/styles.scss",
-  "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-  "node_modules/quill/dist/quill.snow.css"
-]
+@Configuration
+public class CorsConfig implements WebMvcConfigurer {
 
-npm i @angular/material@17
+    @Value("${cors.allowed-origins}")
+    private String[] allowedOrigins;
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins(allowedOrigins)
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
+    }
+}
 
-shared: shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+
+cors:
+  allowed-origins: http://localhost:4200,http://localhost:4201
